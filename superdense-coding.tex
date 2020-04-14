@@ -10,8 +10,8 @@
 \maketitle
 \section{Quantum Circuit}
   \begin{quantikz}
-    \lstick{$\ket{0}$} & \gate{H} & \ctrl{1}\slice{$\ket{\psi_1}$} & \gate{X} & \gate{Z}\slice{$\ket{\psi_2}$} & \ctrl{1}  & \gate{H}\slice{$\ket{\psi_3}$} & \meter{} & \qw \\
-    \lstick{$\ket{0}$} & \qw & \targ{} & \qw & \qw & \targ{} & \qw & \meter{} & \qw
+    \lstick{$q_0$} & \gate{H} & \ctrl{1}\slice{$\ket{\psi_1}$} & \gate{X} & \gate{Z}\slice{$\ket{\psi_2}$} & \ctrl{1}  & \gate{H}\slice{$\ket{\psi_3}$} & \meter{} & \qw & \rstick{$\ket{1}$}\\
+    \lstick{$q_1$} & \qw & \targ{} & \qw & \qw & \targ{} & \qw & \meter{} & \qw & \rstick{$\ket{1}$}
   \end{quantikz}
   \section{State Vector}
   At first 2 qubits are entangled to form a bell state $\ket{\phi^+}$\\ 
@@ -23,26 +23,26 @@
       & = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})\\
       & = \ket{\Phi^+}
     \end{split}
-  \end{equation*}
-  There are in total 4 bell states, transformation between them is carried out with quantum gates
+  \end{equation*}\\
+  There are in total 4 bell states, transformation between them is carried out with quantum gates\\
   \begin{equation*}
     \begin{split}
-      I\ket{\Phi^+} = \ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})\\
-      X\ket{\Phi^+} = \ket{\Phi^-} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11})\\
-      Z\ket{\Phi^+} = \ket{\Psi^+} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})\\
-      ZX\ket{\Phi^+} = \ket{\Psi^-} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10})\\
+      I\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \ket{\Phi^+}\\
+      X\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) \ket{\Phi^-}\\
+      Z\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) \ket{\Psi^+}\\
+      ZX\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) \ket{\Psi^-}
     \end{split}
-  \end{equation*}
+  \end{equation*}\\
   Each of these bell states represent a 2 bit binary when measured under bell basis\\
   \begin{equation*}
     \begin{split}
-      \ket{\Phi^+} \xrightarrow{} B_0 = 00\\
-      \ket{\Psi^+} \xrightarrow{} B_1 = 01\\
-      \ket{\Phi^-} \xrightarrow{} B_2 = 10\\
-      \ket{\Psi^-} \xrightarrow{} B_3 = 11\\
+      \ket{\Phi^+} \xrightarrow{} 00 = B_0\\
+      \ket{\Psi^+} \xrightarrow{} 01 = B_1\\
+      \ket{\Phi^-} \xrightarrow{} 10 = B_2\\
+      \ket{\Psi^-} \xrightarrow{} 11 = B_3
     \end{split}
-  \end{equation*}
-  Here, the data to be transmitted is 11. Thus Z and X gates are used
+  \end{equation*}\\
+  Here, the data to be transmitted is 11. Thus X and Z gates are used\\
   \begin{equation*}
     \begin{split}
       \ket{\psi_2} & = \ket{\Phi^+}\\
@@ -51,8 +51,8 @@
       & = \frac{1}{\sqrt{2}}(-\ket{10} + \ket{01})\\
       & = \ket{\Psi^-}
     \end{split}
-  \end{equation*}
-  Final step is to do bell basis measurement on the state vector and measure it to decode the sent data
+  \end{equation*}\\
+  Final step is to do bell basis measurement on the state vector and measure it to decode the sent data\\
   \begin{equation*}
     \begin{split}
       \ket{\psi_3} & = \ket{\Psi^-}\\
@@ -62,5 +62,5 @@
       & = \frac{1}{2}(\ket{01} + \ket{11} - \ket{01} + \ket{11})\\
       & = \ket{11}
     \end{split}
-  \end{equation*}  
+  \end{equation*}\\
 \end{document}

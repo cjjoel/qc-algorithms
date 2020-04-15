@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass{article}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usetikzlibrary{quantikz}
@@ -36,10 +36,23 @@
   Each of these bell states represent a 2 bit binary when measured under bell basis\\
   \begin{equation*}
     \begin{split}
-      \ket{\Phi^+} = B_0 \xrightarrow{} 00\\
-      \ket{\Psi^+} = B_1 \xrightarrow{} 01\\
-      \ket{\Phi^-} = B_2 \xrightarrow{} 10\\
-      \ket{\Psi^-} = B_3 \xrightarrow{} 11
+      B_0 & = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11})\\
+      & = \frac{1}{\sqrt{2}}(\ket{00} + \ket{10})\\
+      & = \frac{1}{\sqrt{2}} \left[ \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \right) \otimes \ket{0} + \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \right) \otimes \ket{0} \right]\\
+      & = \frac{1}{2} [ \ket{00} + \ket{10} + \ket{00} - \ket{10} ]\\
+      & = \ket{00}\\
+      B_1 & = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10})\\
+      & = \frac{1}{\sqrt{2}} \left[ \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \right) \otimes \ket{1} + \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \right) \otimes \ket{0} \right]\\
+      & = \frac{1}{2} [ \ket{01} + \ket{11} + \ket{01} - \ket{11} ]\\
+      & = \ket{01}\\
+      B_2 & = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11})\\
+      & = \frac{1}{\sqrt{2}} \left[ \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \right) \otimes \ket{0} - \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \right) \otimes \ket{1} \right]\\
+      & = \frac{1}{2} [ \ket{00} + \ket{10} - \ket{00} + \ket{10} ]\\
+      & = \ket{10}\\
+      B_3 & = \frac{1}{\sqrt{2}}(\ket{01} - \ket{11})\\
+      & = \frac{1}{\sqrt{2}} \left[ \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \right) \otimes \ket{1} - \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \right) \otimes \ket{1} \right]\\
+      & = \frac{1}{2} [ \ket{01} + \ket{11} - \ket{01} + \ket{11} ]\\
+      & = \ket{11}
     \end{split}
   \end{equation*}\\
   Here, the data to be transmitted is 11. Thus X and Z gates are used\\
@@ -56,10 +69,7 @@
   \begin{equation*}
     \begin{split}
       \ket{\psi_3} & = \ket{\Psi^-}\\
-      & = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10})\\
-      & = \frac{1}{\sqrt{2}}(\ket{01} - \ket{11})\\
-      & = \frac{1}{\sqrt{2}} \left( \left( \frac{\ket{0} + \ket{1}}{\sqrt{2}} \otimes \ket{1} \right) - \left( \frac{\ket{0} - \ket{1}}{\sqrt{2}} \otimes \ket{1} \right) \right)\\
-      & = \frac{1}{2}(\ket{01} + \ket{11} - \ket{01} + \ket{11})\\
+      & = B_3\\
       & = \ket{11}
     \end{split}
   \end{equation*}\\

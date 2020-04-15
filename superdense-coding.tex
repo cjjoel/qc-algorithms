@@ -27,19 +27,19 @@
   There are in total 4 bell states, transformation between them is carried out with quantum gates\\
   \begin{equation*}
     \begin{split}
-      I\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \ket{\Phi^+}\\
-      X\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) \ket{\Phi^-}\\
-      Z\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) \ket{\Psi^+}\\
-      ZX\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) \ket{\Psi^-}
+      I\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) = \ket{\Phi^+} = B_0\\
+      X\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{00} - \ket{11}) = \ket{\Phi^-} = B_2\\
+      Z\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} + \ket{10}) = \ket{\Psi^+} = B_1\\
+      ZX\ket{\Phi^+} = \frac{1}{\sqrt{2}}(\ket{01} - \ket{10}) = \ket{\Psi^-} = B_3
     \end{split}
   \end{equation*}\\
   Each of these bell states represent a 2 bit binary when measured under bell basis\\
   \begin{equation*}
     \begin{split}
-      \ket{\Phi^+} \xrightarrow{} 00 = B_0\\
-      \ket{\Psi^+} \xrightarrow{} 01 = B_1\\
-      \ket{\Phi^-} \xrightarrow{} 10 = B_2\\
-      \ket{\Psi^-} \xrightarrow{} 11 = B_3
+      \ket{\Phi^+} = B_0 \xrightarrow{} 00\\
+      \ket{\Psi^+} = B_1 \xrightarrow{} 01\\
+      \ket{\Phi^-} = B_2 \xrightarrow{} 10\\
+      \ket{\Psi^-} = B_3 \xrightarrow{} 11
     \end{split}
   \end{equation*}\\
   Here, the data to be transmitted is 11. Thus X and Z gates are used\\

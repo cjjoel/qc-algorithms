@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usetikzlibrary{quantikz}
+\author{}
+\date{}
+\title{Quantum Teleportation}
+\usepackage{braket}
+\begin{document}
+\maketitle
+\section{Quantum Circuit}
+  \begin{quantikz}
+    % \lstick{$\ket{\psi}$} & \qw & \qw\slice{$\ket{\psi_1}$} & targ{} & \gate{H}\slice{$\ket{\psi_1}$ & \qw & \targ{}\slice{$\ket{\psi_1}$ & \qw
+    \lstick{$\ket{\psi}$} & \qw  & \qw & \ctrl{1} & \gate{H}\slice{$\ket{\psi_2}$} & \qw & \ctrl{2} & \qw\\
+    \lstick{$\ket{0}$} & \gate{H} & \ctrl{1}\slice{$\ket{\psi_1}$} & \targ{} & \qw & \ctrl{1} & \qw & \qw \\
+    \lstick{$\ket{0}$} & \qw & \targ{} & \qw & \qw  & \targ{} & \control{} & \qw & \rstick{$\ket{\psi}$} 
+  \end{quantikz}     
+  \section{State Vector}
+  Tensor product of the qubit to be teleported with the entangled qubits,\\
+  \begin{equation*}
+      \begin{split}
+      \ket{\psi_1} & = (\alpha \ket{0} + \beta \ket{1}) \otimes \frac{1}{\sqrt{2}}(\ket{00} + \ket{10})\\
+      & =\frac{1}{\sqrt{2}}(\alpha\ket{000} + \alpha\ket{011} + \beta\ket{100} + \beta\ket{111})\\
+      & =\frac{1}{\sqrt{2}}(\ket{00}\alpha\ket{0} + \ket{01}\alpha\ket{1} + \ket{10}\beta\ket{0} + \ket{11}\beta\ket{1})\\
+      & =\frac{1}{\sqrt{2}}[
+        (B_0+B_2)\alpha\ket{0} +
+        (B_1+B_3)\alpha\ket{1} +
+        (B_1-B_3)\ket{10}\beta\ket{0} +
+        (B_0-B_2)\ket{11}\beta\ket{1}]\\
+      & = \frac{1}{\sqrt{2}}[
+      B_0(\alpha\ket{0} + \beta\ket{1}) +
+      B_1(\alpha\ket{1} + \beta\ket{0}) +
+      B_2(\alpha\ket{0} - \beta\ket{1}) +
+      B_3(\alpha\ket{1} - \beta\ket{0})]
+    \end{split}
+  \end{equation*}\\
+  Bell basis measurement,\\
+  \begin{equation*}
+    \begin{split}
+      \ket{\psi_2} & = \frac{1}{\sqrt{2}}[
+      B_0(\alpha\ket{0} + \beta\ket{1}) +
+      B_1(\alpha\ket{1} + \beta\ket{0}) +
+      B_2(\alpha\ket{0} - \beta\ket{1}) +
+      B_3(\alpha\ket{1} - \beta\ket{0})]\\
+      & = \frac{1}{4}[
+      \ket{00}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{01}(\alpha\ket{1} + \beta\ket{0}) +
+      \ket{10}(\alpha\ket{0} - \beta\ket{1}) +
+      \ket{11}(\alpha\ket{1} - \beta\ket{0})]
+    \end{split}
+  \end{equation*}\\ 
+  Application of CX and CZ gates to correct the teleported qubit,\\ 
+  \begin{equation*}
+    \begin{split}
+      \ket{\psi_2} & = \frac{1}{4}[
+      \ket{00}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{01}(\alpha\ket{1} + \beta\ket{0}) +
+      \ket{10}(\alpha\ket{0} - \beta\ket{1}) +
+      \ket{11}(\alpha\ket{1} - \beta\ket{0})]\\
+      & = \frac{1}{4}[
+      \ket{00}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{01}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{10}(\alpha\ket{0} - \beta\ket{1}) +
+      \ket{11}(\alpha\ket{0} - \beta\ket{1})]\\
+      & = \frac{1}{4}[
+      \ket{00}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{01}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{10}(\alpha\ket{0} + \beta\ket{1}) +
+      \ket{11}(\alpha\ket{0} + \beta\ket{0})]
+    \end{split}
+  \end{equation*}\\
+\end{document}

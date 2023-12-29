@@ -5,6 +5,7 @@ Implementation of quantum computing algorithms with [Qiskit](https://www.ibm.com
 ## Algorithms
 
 * [Superdense coding](notebooks/superdense-coding.ipynb)
+* [Quantum teleportation](notebooks/quantum-teleportation.ipynb)
 
 ## Resources
 
